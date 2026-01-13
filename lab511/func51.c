@@ -1,4 +1,6 @@
 #include "func51.h"
+#include <math.h>
+#define MINDOUBLE 2.2204460492503131e-16 //DBL_EPSILON из float.h
 
 double sum(double a, double b)
 {
@@ -12,7 +14,7 @@ double sub(double a, double b)
 
 double myDiv(double a, double b)
 {
-    if(b == 0.0) {
+    if(fabs(b) <= MINDOUBLE) {
         return NAN;
     } else {
         return a / b;
